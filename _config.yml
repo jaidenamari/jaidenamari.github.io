@@ -22,7 +22,7 @@ title: Jaiden Garrett
 email: jaidenagarrett@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   The place where I document my ethical hacking adventures.
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jaidenamari
 github_username:  jaidenamari
