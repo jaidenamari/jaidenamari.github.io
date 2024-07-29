@@ -1,6 +1,7 @@
 baseURL = "https://jaidenamari.github.io/"
 languageCode = "en"
-title = "My Cybersecurity Journey"
+title = "My Cybersecurity Adventure"
+description = "Where cyber witchery meets security"
 theme = "LoveIt"
 publishDir = "docs"
 
