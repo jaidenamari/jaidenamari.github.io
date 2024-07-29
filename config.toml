@@ -2,6 +2,7 @@ baseURL = "https://jaidenamari.github.io/"
 languageCode = "en"
 title = "My Cybersecurity Journey"
 theme = "LoveIt"
+publishDir = "docs"
 
 [params]
   version = "0.2.X"
