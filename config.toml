@@ -1,0 +1,24 @@
+baseURL = "https://jaidenamari.github.io/"
+languageCode = "en"
+title = "My Cybersecurity Journey"
+theme = "LoveIt"
+
+[params]
+  version = "0.2.X"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 3
