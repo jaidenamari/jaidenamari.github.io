@@ -1,0 +1,533 @@
+// moon-theme.scss
+
+// Custom font face
+@font-face {
+    font-family: "JetBrainsMono Nerd Font Mono";
+    src: url("static/fonts/JetBrainsMonoNerdFontMono-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --red: #e22c3c;
+    --red-orange: #e9404b;
+    --orange: #ee6748;
+    --amber: #fa9f50;
+    --yellow: #ffd85e;
+    --lime: #97e768;
+    --mint: #52eea3;
+    --cyan: #51e1e9;
+    --cool-cyan: #43cfea;
+    --light-blue: #54b6f8;
+    --blue: #437cf3;
+    --blue-violet: #6f51f4;
+    --violet: #9446f8;
+    --purple: #c952ed;
+    --magenta: #e54f9b;
+    --hot-red: #e3365e;
+    --cool-gray: #515768;
+}
+
+.theme-light {
+    --contrast-color: var(--shadow);
+    --default-text-color: var(--shadow);
+    --bg-contrast-amount: 70%;
+    --fg-contrast-amount: 30%;
+    --medium-contrast-amount: 60%;
+    --active-contrast-amount: 30%;
+
+    --yellow: color-mix(in srgb, #ffd85e 90%, var(--shadow));
+    --lime: color-mix(in srgb, #97e768 90%, var(--shadow));
+    --mint: color-mix(in srgb, #52eea3 85%, var(--shadow));
+    --cyan: color-mix(in srgb, #51e1e9 85%, var(--shadow));
+    --cool-cyan: color-mix(in srgb, #43cfea 85%, var(--shadow));
+    --light-blue: color-mix(in srgb, #54b6f8 90%, var(--shadow));
+}
+
+.theme-dark {
+    --contrast-color: var(--highlight);
+    --bg-contrast-amount: 15%;
+    --fg-contrast-amount: 40%;
+    --medium-contrast-amount: 20%;
+    --active-contrast-amount: 10%;
+}
+
+
+// Override LoveIt theme variables
+$global-font-family: "JetBrainsMono Nerd Font Mono", system-ui, -apple-system, Segoe UI, Roboto, Emoji, Helvetica, Arial, sans-serif;
+$code-font-family: "JetBrainsMono Nerd Font Mono", Source Code Pro, Menlo, Consolas, Monaco, monospace;
+$global-font-size: 16px;
+$global-font-weight: 400;
+$global-line-height: 1.5rem;
+
+// Dark theme colors
+$global-background-color-dark: #000;
+$global-font-color-dark: #fff;
+$global-link-color-dark: #999;
+$global-link-hover-color-dark: #fff;
+$global-border-color-dark: #333;
+
+// Color of the secondary text
+$global-font-secondary-color: #fff !default;
+$global-font-secondary-color-dark: #a9a9b3 !default;
+
+$header-background-color-dark: #111;
+$header-hover-color-dark: #fff;
+
+$single-link-color-dark: #999;
+$single-link-hover-color-dark: #fff;
+
+$table-background-color-dark: #1a1a1a;
+$table-thead-color-dark: #222;
+
+$blockquote-color-dark: #bbb;
+
+$pagination-link-color-dark: #999;
+$pagination-link-hover-color-dark: #fff;
+
+$selection-color-dark: rgba(53, 166, 247, 0.25);
+
+// Custom styles
+body {
+    --link-decoration: none;
+}
+
+h1 {
+    margin-top: 20px !important;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+.image-borders img {
+    border: 2px solid rgba(122, 122, 122, 0.2);
+}
+
+.callout {
+    border-radius: 12px;
+    border-width: 2px;
+}
+
+.task-list-item-checkbox {
+    border-width: 2px;
+}
+
+.markdown-preview-view {
+    border-radius: 6px;
+}
+
+.center-titles {
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+    }
+}
+
+code {
+    font-family: "JetBrainsMono Nerd Font Mono", monospace;
+}
+
+// Dark theme specific overrides
+.dark {
+    --color-base-00: #{$global-background-color-dark};
+    --color-base-05: #080808;
+    --color-base-10: #{$header-background-color-dark};
+    --color-base-20: #{$table-background-color-dark};
+    --color-base-25: #{$table-thead-color-dark};
+    --color-base-30: #{$global-border-color-dark};
+    --color-base-35: #363636;
+    --color-base-40: #4a4a4a;
+    --color-base-50: #666;
+    --color-base-60: #{$global-link-color-dark};
+    --color-base-70: #{$blockquote-color-dark};
+    --color-base-100: #{$global-font-color-dark};
+
+    --background-primary: var(--color-base-00);
+    --background-secondary: var(--color-base-05);
+    --titlebar-background: var(--color-base-00);
+    --titlebar-background-focused: var(--color-base-10);
+}
+
+////Overrides of the LoveItTheme (These are breaking changes because I do not have all the @include files necessary)
+//
+//.home-profile {
+//    @include transform(translateY( 16vh));
+//    padding: 0 0 .5rem;
+//    text-align: center;
+//
+//    .home-avatar {
+//        padding: .5rem;
+//
+//        img {
+//            display: inline-block;
+//            width: 10rem;
+//            height: auto;
+//            margin: 0 auto;
+//            @include border-radius(100%);
+//            @include box-shadow(0 0 0 .3618em rgba(0, 0, 0, .05));
+//            @include transition(all 0.4s ease);
+//
+//            &:hover {
+//                position: relative;
+//                @include transform(translateY(-.75rem));
+//            }
+//        }
+//    }
+//
+//    @import "../_partial/_single/toc";
+//
+//    .single {
+//        .single-title {
+//            margin: 2rem 0 .5rem;
+//            font-size: 2.0rem;
+//            font-weight: bold;
+//            line-height: 140%;
+//        }
+//
+//        .single-subtitle {
+//            margin: .5rem 0;
+//            font-size: 1.2rem;
+//            font-weight: normal;
+//            line-height: 100%;
+//        }
+//
+//        .post-meta {
+//            font-size: .875rem;
+//            color: $global-font-secondary-color;
+//
+//            span {
+//                display: inline-block;
+//            }
+//
+//            [theme=dark] & {
+//                color: $global-font-secondary-color-dark;
+//            }
+//
+//            @include link(false, true);
+//
+//            .author {
+//                font-size: 1.05rem;
+//            }
+//        }
+//
+//        .featured-image {
+//            margin: .5rem 0 1rem 0;
+//
+//            img {
+//                display: block;
+//                max-width: 100%;
+//                height: auto;
+//                margin: 0 auto;
+//                overflow: hidden;
+//            }
+//
+//            img.lazyloaded {
+//                width: 100%;
+//            }
+//        }
+//
+//        .content {
+//            > h2 {
+//                font-size: 1.5rem;
+//
+//                & code {
+//                    font-size: 1.25rem;
+//                }
+//            }
+//
+//            > h3 {
+//                font-size: 1.375rem;
+//
+//                & code {
+//                    font-size: 1.125rem;
+//                }
+//            }
+//
+//            > h4 {
+//                font-size: 1.25rem;
+//
+//                & code {
+//                    font-size: 1rem;
+//                }
+//            }
+//
+//            > h5 {
+//                font-size: 1.125rem;
+//            }
+//
+//            > h6 {
+//                font-size: 1rem;
+//            }
+//
+//            h2,
+//            h3,
+//            h4,
+//            h5,
+//            h6 {
+//                font-weight: bold;
+//                margin: 2.5rem 0;
+//
+//                [theme=dark] & {
+//                    font-weight: bolder;
+//                }
+//            }
+//
+//            > h2,
+//            > h3,
+//            > h4,
+//            > h5,
+//            > h6 {
+//                > .header-mark::before {
+//                    content: "|";
+//                    margin-right: .3125rem;
+//                    color: $single-link-color;
+//
+//                    [theme=dark] & {
+//                        color: $single-link-color;
+//                    }
+//                }
+//            }
+//
+//            > h2 > .header-mark::before {
+//                content: "#";
+//            }
+//
+//            p {
+//                margin: .5rem 0;
+//            }
+//
+//            b, strong {
+//                font-weight: bold;
+//
+//                [theme=dark] & {
+//                    color: #ddd;
+//                }
+//            }
+//
+//            @include link(false, false);
+//
+//            a {
+//                @include overflow-wrap(break-word);
+//
+//                [theme=dark] & b, [theme=dark] & strong {
+//                    color: $single-link-color-dark;
+//                }
+//            }
+//
+//            [theme=dark] a:hover b, [theme=dark] a:hover strong {
+//                color: $single-link-hover-color-dark;
+//            }
+//
+//            ul, ol {
+//                margin: 1.5rem 0;
+//                padding-left: 3.5rem;
+//            }
+//
+//            ul {
+//                list-style-type: disc;
+//            }
+//
+//            ruby {
+//                background: $code-background-color;
+//
+//                rt {
+//                    color: $global-font-secondary-color;
+//                }
+//
+//                [theme=dark] & {
+//                    background: $code-background-color-dark;
+//
+//                    rt {
+//                        color: $global-font-secondary-color-dark;
+//                    }
+//                }
+//            }
+//
+//            .table-wrapper {
+//                overflow-x: auto;
+//
+//                &::-webkit-scrollbar {
+//                    background-color: $table-background-color;
+//
+//                    [theme=dark] & {
+//                        background-color: $table-background-color-dark;
+//                    }
+//                }
+//
+//                > table {
+//                    width: 100%;
+//                    max-width: 100%;
+//                    margin: .625rem 0;
+//                    border-spacing: 0;
+//                    background: $table-background-color;
+//                    border-collapse: collapse;
+//
+//                    [theme=dark] & {
+//                        background: $table-background-color-dark;
+//                    }
+//
+//                    thead {
+//                        background: $table-thead-color;
+//
+//                        [theme=dark] & {
+//                            background-color: $table-thead-color-dark;
+//                        }
+//                    }
+//
+//                    th, td {
+//                        padding: .3rem 1rem;
+//                        border: 1px solid darken($table-thead-color, 2%);
+//
+//                        [theme=dark] & {
+//                            border-color: darken($table-thead-color-dark, 2%);
+//                        }
+//                    }
+//                }
+//            }
+//
+//            img {
+//                max-width: 100%;
+//                min-height: 1em;
+//            }
+//
+//            figure {
+//                margin: .5rem;
+//                text-align: center;
+//
+//                .image-caption:not(:empty) {
+//                    min-width: 20%;
+//                    max-width: 80%;
+//                    display: inline-block;
+//                    padding: .5rem;
+//                    margin: 0 auto;
+//                    font-size: .875rem;
+//                    color: #969696;
+//                }
+//
+//                img {
+//                    display: block;
+//                    width: 100%;
+//                    height: auto;
+//                    margin: 0 auto;
+//                    overflow: hidden;
+//                }
+//            }
+//
+//            blockquote {
+//                display: block;
+//                border-left: .5rem solid $blockquote-color;
+//                background-color: rgba($blockquote-color, .2);
+//                padding: .25rem .75rem;
+//                margin: 1rem 0;
+//
+//                [theme=dark] & {
+//                    border-left-color: $blockquote-color-dark;
+//                    background-color: rgba($blockquote-color-dark, .2);
+//                }
+//            }
+//
+//            .footnotes {
+//                color: $global-font-secondary-color;
+//
+//                [theme=dark] & {
+//                    color: $global-font-secondary-color-dark;
+//                }
+//
+//                p {
+//                    margin: .25rem 0;
+//                }
+//            }
+//
+//            @import "../_partial/_single/code";
+//            @import "../_partial/_single/instagram";
+//            @import "../_partial/_single/admonition";
+//            @import "../_partial/_single/echarts";
+//            @import "../_partial/_single/mapbox";
+//            @import "../_partial/_single/music";
+//            @import "../_partial/_single/bilibili";
+//
+//            hr {
+//                margin: 1rem 0;
+//                position: relative;
+//                border-top: 1px dashed $global-border-color;
+//                border-bottom: none;
+//
+//                [theme=dark] & {
+//                    border-top: 1px dashed $global-border-color-dark;
+//                }
+//            }
+//
+//            kbd {
+//                display: inline-block;
+//                padding: .25rem;
+//                background-color: $global-background-color;
+//                border: 1px solid $global-border-color;
+//                border-bottom-color: $global-border-color;
+//                @include border-radius(3px);
+//                @include box-shadow(inset 0 -1px 0 $global-border-color);
+//                font-size: .8rem;
+//                font-family: var(--code-font-family);
+//                color: $code-color;
+//
+//                [theme=dark] & {
+//                    background-color: $global-background-color-dark;
+//                    border: 1px solid $global-border-color-dark;
+//                    border-bottom-color: $global-border-color-dark;
+//                    @include box-shadow(inset 0 -1px 0 $global-border-color-dark);
+//                    color: $code-color-dark;
+//                }
+//            }
+//
+//            .version {
+//                height: 1.25em;
+//                vertical-align: text-bottom;
+//            }
+//
+//            .person-mention.h-card {
+//                display: inline-block;
+//                img {
+//                    vertical-align: -12%;
+//                    max-height: 1.1em;
+//                    margin-right: 0ex;
+//                    border-radius: 50%;
+//                }
+//            }
+//        }
+//
+//        @import "../_partial/_single/footer";
+//        @import "../_partial/_single/comment";
+//    }
+//
+//    .typeit {
+//        .highlight {
+//            padding: .375rem;
+//            font-size: .875rem;
+//            font-family: var(--code-font-family);
+//            font-weight: bold;
+//            word-break: break-all;
+//            white-space: pre-wrap;
+//        }
+//
+//        --ti-cursor-font-family: var(--global-font-family);
+//        --ti-cursor-font-size: var(--global-font-size);
+//        --ti-cursor-font-weight: var(--global-font-weight);
+//        --ti-cursor-line-height: var(--global-line-height);
+//        --ti-cursor-color: $global-font-secondary-color;
+//        --ti-cursor-margin-left: 0;
+//
+//        [theme=dark] & {
+//            --ti-cursor-color: $global-font-secondary-color-dark;
+//        }
+//    }
+//
+//    .lg-toolbar .lg-icon::after {
+//        color: #999;
+//    }
+
+
