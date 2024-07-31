@@ -1,0 +1,157 @@
+// moon-theme.scss
+
+// Custom font face
+@font-face {
+    font-family: "JetBrainsMono Nerd Font Mono";
+    src: url("static/fonts/JetBrainsMonoNerdFontMono-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --red: #e22c3c;
+    --red-orange: #e9404b;
+    --orange: #ee6748;
+    --amber: #fa9f50;
+    --yellow: #ffd85e;
+    --lime: #97e768;
+    --mint: #52eea3;
+    --cyan: #51e1e9;
+    --cool-cyan: #43cfea;
+    --light-blue: #54b6f8;
+    --blue: #437cf3;
+    --blue-violet: #6f51f4;
+    --violet: #9446f8;
+    --purple: #c952ed;
+    --magenta: #e54f9b;
+    --hot-red: #e3365e;
+    --cool-gray: #515768;
+}
+
+.theme-light {
+    --contrast-color: var(--shadow);
+    --default-text-color: var(--shadow);
+    --bg-contrast-amount: 70%;
+    --fg-contrast-amount: 30%;
+    --medium-contrast-amount: 60%;
+    --active-contrast-amount: 30%;
+
+    --yellow: color-mix(in srgb, #ffd85e 90%, var(--shadow));
+    --lime: color-mix(in srgb, #97e768 90%, var(--shadow));
+    --mint: color-mix(in srgb, #52eea3 85%, var(--shadow));
+    --cyan: color-mix(in srgb, #51e1e9 85%, var(--shadow));
+    --cool-cyan: color-mix(in srgb, #43cfea 85%, var(--shadow));
+    --light-blue: color-mix(in srgb, #54b6f8 90%, var(--shadow));
+}
+
+.theme-dark {
+    --contrast-color: var(--highlight);
+    --bg-contrast-amount: 15%;
+    --fg-contrast-amount: 40%;
+    --medium-contrast-amount: 20%;
+    --active-contrast-amount: 10%;
+}
+
+
+// Override LoveIt theme variables
+$global-font-family: "JetBrainsMono Nerd Font Mono", system-ui, -apple-system, Segoe UI, Roboto, Emoji, Helvetica, Arial, sans-serif;
+$code-font-family: "JetBrainsMono Nerd Font Mono", Source Code Pro, Menlo, Consolas, Monaco, monospace;
+$global-font-size: 16px;
+$global-font-weight: 400;
+$global-line-height: 1.5rem;
+
+// Dark theme colors
+$global-background-color-dark: #000;
+$global-font-color-dark: #fff;
+$global-link-color-dark: #999;
+$global-link-hover-color-dark: #fff;
+$global-border-color-dark: #333;
+
+// Color of the secondary text
+$global-font-secondary-color: #fff !default;
+$global-font-secondary-color-dark: #a9a9b3 !default;
+
+$header-background-color-dark: #111;
+$header-hover-color-dark: #fff;
+
+$single-link-color-dark: #999;
+$single-link-hover-color-dark: #fff;
+
+$table-background-color-dark: #1a1a1a;
+$table-thead-color-dark: #222;
+
+$blockquote-color-dark: #bbb;
+
+$pagination-link-color-dark: #999;
+$pagination-link-hover-color-dark: #fff;
+
+$selection-color-dark: rgba(53, 166, 247, 0.25);
+
+// Custom styles
+body {
+    --link-decoration: none;
+}
+
+h1 {
+    margin-top: 20px !important;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+.image-borders img {
+    border: 2px solid rgba(122, 122, 122, 0.2);
+}
+
+.callout {
+    border-radius: 12px;
+    border-width: 2px;
+}
+
+.task-list-item-checkbox {
+    border-width: 2px;
+}
+
+.markdown-preview-view {
+    border-radius: 6px;
+}
+
+.center-titles {
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+    }
+}
+
+code {
+    font-family: "JetBrainsMono Nerd Font Mono", monospace;
+}
+
+// Dark theme specific overrides
+.dark {
+    --color-base-00: #{$global-background-color-dark};
+    --color-base-05: #080808;
+    --color-base-10: #{$header-background-color-dark};
+    --color-base-20: #{$table-background-color-dark};
+    --color-base-25: #{$table-thead-color-dark};
+    --color-base-30: #{$global-border-color-dark};
+    --color-base-35: #363636;
+    --color-base-40: #4a4a4a;
+    --color-base-50: #666;
+    --color-base-60: #{$global-link-color-dark};
+    --color-base-70: #{$blockquote-color-dark};
+    --color-base-100: #{$global-font-color-dark};
+
+    --background-primary: var(--color-base-00);
+    --background-secondary: var(--color-base-05);
+    --titlebar-background: var(--color-base-00);
+    --titlebar-background-focused: var(--color-base-10);
+}
+
+
