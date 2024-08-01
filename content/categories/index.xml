@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - My Cybersecurity Journey</title>
+        <link>https://jaidenamari.github.io/categories/</link>
+        <description>Categories - Category - My Cybersecurity Journey</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 26 Jul 2024 12:00:00 &#43;0000</lastBuildDate><atom:link href="https://jaidenamari.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Blog</title>
+    <link>https://jaidenamari.github.io/categories/blog/</link>
+    <pubDate>Fri, 26 Jul 2024 12:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://jaidenamari.github.io/categories/blog/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
