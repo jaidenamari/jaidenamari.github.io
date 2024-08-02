@@ -1,6 +1,6 @@
 baseURL = "https://jaidenamari.github.io"
 theme = "LoveIt"
-title = "Jellywitch's Blog"
+title = "spriggan's Blog"
 defaultContentLanguage = "en"
 languageCode = "en"
 languageName = "English"
@@ -13,7 +13,7 @@ enableEmoji = true
 ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
 [author]
-  name = "jaidenamari"
+  name = "spriggan"
   email = "jaidenagarrett@gmail.com"
   link = "https://jaidenamari.github.io"
 
@@ -56,8 +56,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   gitRepo = "https://github.com/dillonzq/LoveIt"
   fingerprint = ""
   dateFormat = "2006-01-02"
-  title = "Jellywitch's Blog"
-  description = "Welcome to Jellywitch's Blog"
+  title = "spriggan's Blog"
+  description = "Welcome to spriggan's Blog"
   images = ["/logo.png"]
 
   [params.header]
@@ -65,7 +65,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     mobileMode = "auto"
     [params.header.title]
       logo = ""
-      name = "Jellywitch's Blog"
+      name = "spriggan's Blog"
       pre = "<i class='fa-solid fa-terminal' aria-hidden='true'></i>"
       post = ""
       typeit = true
@@ -119,8 +119,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       enable = true
       gravatarEmail = ""
       avatarURL = "/images/prof.jpeg"
-      title = "Jellywitch"
-      subtitle = "Hey everyone! I’m Jellywitch. 😄 I’m a Security Engineer and analyst who has been in the IT industry 15 years and cybersecurity industry now about 2 years... I have a passion for spelunking in cyberspace."
+      title = "spriggan"
+      subtitle = "Hey everyone! I’m spriggan. 🔒 I’m a Security Engineer and analyst who has been in the IT industry 15 years and cybersecurity industry 2 years... I have a passion for spelunking in cyberspace."
       typeit = false
       social = true
       disclaimer = ""
