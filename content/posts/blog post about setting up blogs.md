@@ -44,9 +44,8 @@ I wanted to customize my blog locally before pushing changes to GitHub:
 3. Create a new Hugo site.
 ```bash
 	hugo new site spriggan.github.io
-	cd spriggan.github.io>)
+	cd spriggan.github.io
 ```
-
 
 ### 5. Customize My Hugo Site
 

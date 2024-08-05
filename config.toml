@@ -120,7 +120,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       gravatarEmail = ""
       avatarURL = "/images/prof.jpeg"
       title = "spriggan"
-      subtitle = "Hey everyone! I’m spriggan. 🔒 I’m a Security Engineer and analyst who has been in the IT industry 15 years and cybersecurity industry 2 years... I have a passion for spelunking in cyberspace."
+      subtitle = "Hello there! I’m spriggan. 🔒 I’m a Security Engineer and analyst who has been in the IT industry 15 years and cybersecurity industry 2 years... I have a passion for spelunking in cyberspace and the forest."
       typeit = false
       social = true
       disclaimer = ""
@@ -128,11 +128,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       enable = false
       paginate = 6
   [params.social]
-    GitHub         = "jaidenamari"
-    Twitter        = "imjellywitch"
-    # Youtubechannel = "UCk9BugRahSWgPLYOAA3QH4w"
-    Email          = "jaidenagarrett@gmail.com"
-    Discord        = "jellywitch#1903"
+    GitHub         = "oxspriggan"
+    Twitter        = "oxspriggan"
+    Youtubechannel = "oxspriggan"
+    Email          = "imspriggan@gmail.com"
+    Discord        = "oxspriggan"
 
   [params.page]
     hiddenFromHomePage = false
