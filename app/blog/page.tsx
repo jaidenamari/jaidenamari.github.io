@@ -2,8 +2,8 @@ import { PostCard } from "@/components/post-card"
 import { getAllPosts } from "@/lib/blog"
 import { PageHeader } from "@/components/page-header"
 
-export default function BlogPage() {
-  const posts = getAllPosts()
+export default async function BlogPage() {
+  const posts = await getAllPosts()
 
   return (
     <div className="container mx-auto px-4 py-24 relative">

@@ -3,10 +3,8 @@ import { PostPageClient } from "./PostPageClient"
 import { notFound } from "next/navigation"
 
 export async function generateStaticParams() {
-  const posts = getAllPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
+  const posts = await getAllPosts()
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
 export default async function PostPage({
@@ -14,11 +12,10 @@ export default async function PostPage({
 }: {
   params: { slug: string }
 }) {
-  const post = await getPostBySlug(params.slug)
-  
+  const { slug } = await params
+  const post = await getPostBySlug(slug)
   if (!post) {
     return notFound()
   }
-
   return <PostPageClient post={post} />
 }
