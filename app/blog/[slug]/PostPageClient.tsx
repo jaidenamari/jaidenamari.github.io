@@ -19,8 +19,12 @@ export function PostPageClient({ post }: { post: Post }) {
         <div className="h-full w-full bg-[linear-gradient(to_right,#8A2BE2_1px,transparent_1px),linear-gradient(to_bottom,#8A2BE2_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       </div>
 
-      <Link href="/blog" className="flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
-        <ArrowLeft className="mr-2 h-4 w-4" />
+      <Link 
+        href="/blog" 
+        prefetch={false} 
+        className="flex items-center text-muted-foreground hover:text-primary hover:underline hover:underline-offset-4 mb-8 transition-all group"
+      >
+        <ArrowLeft className="mr-2 h-4 w-4 group-hover:transform group-hover:-translate-x-1 transition-transform" />
         Back to all posts
       </Link>
 

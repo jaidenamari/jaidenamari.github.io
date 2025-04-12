@@ -27,10 +27,12 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  devIndicators: {
+    appIsrStatus: true,
+  },
   // GitHub Pages configuration
   output: 'export',
-  // Optional: Configure basePath if your site is being served from a subdirectory
-  // basePath: '/blog',
+
 }
 
 if (userConfig) {

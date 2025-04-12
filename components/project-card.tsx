@@ -4,7 +4,8 @@ import type { Project } from "@/lib/projects"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink } from "lucide-react"
+import { GitHubIcon } from "@/components/social-icons"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
@@ -74,7 +75,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               className="border-cyan-500/50 hover:border-cyan-500 hover:bg-cyan-950/30"
             >
               <Link href={project.githubUrl} target="_blank" className="flex items-center">
-                <Github className="mr-2 h-4 w-4" />
+                <GitHubIcon className="mr-2 h-4 w-4" />
                 Source Code
               </Link>
             </Button>

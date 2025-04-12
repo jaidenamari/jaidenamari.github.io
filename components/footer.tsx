@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Github, Linkedin, Twitter, Leaf, Shield } from "lucide-react"
+import { Leaf, Shield } from "lucide-react"
+import { GitHubIcon, LinkedInIcon, BlueskyIcon, YouTubeIcon } from "@/components/social-icons"
 
 export default function Footer() {
   return (
@@ -53,25 +54,32 @@ export default function Footer() {
             <h3 className="font-medium mb-4 text-cyan-400">Connect</h3>
             <div className="flex space-x-3">
               <Link
-                href="https://github.com/spriggan"
+                href="https://github.com/jaidenamari"
                 target="_blank"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Github className="h-5 w-5" />
+                <GitHubIcon className="h-5 w-5" />
               </Link>
               <Link
-                href="https://twitter.com/spriggan"
+                href="https://bsky.app/profile/imspriggan.bsky.social"
                 target="_blank"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Twitter className="h-5 w-5" />
+                <BlueskyIcon className="h-5 w-5" />
               </Link>
               <Link
-                href="https://linkedin.com/in/spriggan"
+                href="https://linkedin.com/in/jaidenamari/"
                 target="_blank"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Linkedin className="h-5 w-5" />
+                <LinkedInIcon className="h-5 w-5" />
+              </Link>
+              <Link
+                href="https://youtube.com/@oxspriggan"
+                target="_blank"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <YouTubeIcon className="h-5 w-5" />
               </Link>
             </div>
           </div>

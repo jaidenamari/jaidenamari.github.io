@@ -9,8 +9,12 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function PostPage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug)
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const post = await getPostBySlug(params.slug)
   
   if (!post) {
     return notFound()

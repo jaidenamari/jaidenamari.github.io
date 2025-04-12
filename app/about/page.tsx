@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Github, Linkedin, Twitter } from "lucide-react"
 import { PageHeader } from "@/components/page-header"
 import { motion } from "framer-motion"
+import { GitHubIcon, LinkedInIcon, BlueskyIcon, YouTubeIcon } from "@/components/social-icons"
 
 export default function AboutPage() {
   return (
@@ -32,7 +32,7 @@ export default function AboutPage() {
           >
             <div className="relative h-64 w-full rounded-lg overflow-hidden border border-border/50 mb-4 group">
               <img
-                src="/placeholder.svg?height=400&width=300"
+                src="/images/spriggan.jpg"
                 alt="Profile"
                 className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
               />
@@ -46,18 +46,8 @@ export default function AboutPage() {
                 asChild
                 className="border-primary/50 hover:border-primary hover:bg-primary/10"
               >
-                <Link href="https://github.com/spriggan" target="_blank">
-                  <Github className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                asChild
-                className="border-cyan-500/50 hover:border-cyan-500 hover:bg-cyan-500/10"
-              >
-                <Link href="https://twitter.com/spriggan" target="_blank">
-                  <Twitter className="h-4 w-4" />
+                <Link href="https://github.com/jaidenamari" target="_blank">
+                  <GitHubIcon className="h-4 w-4" />
                 </Link>
               </Button>
               <Button
@@ -66,8 +56,28 @@ export default function AboutPage() {
                 asChild
                 className="border-primary/50 hover:border-primary hover:bg-primary/10"
               >
-                <Link href="https://linkedin.com/in/spriggan" target="_blank">
-                  <Linkedin className="h-4 w-4" />
+                <Link href="https://bsky.app/profile/imspriggan.bsky.social" target="_blank">
+                  <BlueskyIcon className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                asChild
+                className="border-primary/50 hover:border-primary hover:bg-primary/10"
+              >
+                <Link href="https://www.linkedin.com/in/jaidenamari/" target="_blank">
+                  <LinkedInIcon className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                asChild
+                className="border-primary/50 hover:border-primary hover:bg-primary/10"
+              >
+                <Link href="https://youtube.com/@oxspriggan" target="_blank">
+                  <YouTubeIcon className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
