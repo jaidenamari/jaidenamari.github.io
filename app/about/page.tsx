@@ -90,14 +90,14 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p>
-              I'm Spriggan, a security engineer and web application developer with a passion for cybersecurity, coding,
+              I'm Spriggan, a security engineer and web application developer, I enjoy coding,
               and exploring both digital and natural environments.
             </p>
 
             <p>
-              My expertise spans across vulnerability assessment, penetration testing, secure coding practices, and
-              building robust web applications. When I'm not hunting for security flaws or writing code, you might find
-              me setting up homelabs for reverse engineering or exploring forests.
+              My expertise spans across vulnerability assessment, secure coding practices, and
+              building full-stack web applications. When I'm not hunting for security flaws or writing code, you might find
+              me setting up homelabs for reverse engineering or spelunking in the forests of the world.
             </p>
 
             <p>
@@ -110,13 +110,16 @@ export default function AboutPage() {
               <h3 className="text-xl font-semibold mb-2 text-cyan-400">Skills & Expertise</h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "Web Security",
-                  "Penetration Testing",
-                  "Reverse Engineering",
+                  "Web App Security",
                   "Full-Stack Development",
-                  "Network Security",
                   "Malware Analysis",
+                  "Reverse Engineering",
                   "Threat Hunting",
+                  "Cybersecurity",
+                  "Gardening",
+                  "Hiking",
+                  "Traveling",
+                  "Exploring"
                 ].map((skill, index) => (
                   <motion.span
                     key={skill}

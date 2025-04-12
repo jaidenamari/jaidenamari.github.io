@@ -4,6 +4,7 @@ date: 2024-07-30
 draft: false
 tags: ["cybersecurity", "blogging"]
 categories: ["blog"]
+coverImage: "/images/blog-covers/cyberpunk-forest-blog-setup.png"
 ---
 
 ## Step-by-Step Guide to Setting Up My Blog on GitHub Pages

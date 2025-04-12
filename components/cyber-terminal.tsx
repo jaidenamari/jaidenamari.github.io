@@ -9,7 +9,7 @@ const terminalLines = [
   { text: "> Rooting into the Elder Tree mainframe...", delay: 2500 },
   { text: "> Deciphering whispers of the silicon trees...", delay: 3500 },
   { text: "> Decrypting ancient forest knowledge...", delay: 4500 },
-  { text: "> The grove accepts. Welcome to the undergrowth..", delay: 5500 },
+  { text: "> The grove accepts. Welcome to the undergrowth...", delay: 5500 },
 ]
 
 export function CyberTerminal() {
@@ -74,7 +74,7 @@ export function CyberTerminal() {
       {/* Terminal content */}
       <div
         ref={terminalRef}
-        className="p-4 font-mono text-sm text-left h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-500/30 scrollbar-track-transparent"
+        className="p-4 h-[500px] font-mono text-sm text-left overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-500/30 scrollbar-track-transparent"
       >
         {/* Forest ASCII art */}
         <pre className="text-cyan-400 mb-4 text-xs leading-tight">
