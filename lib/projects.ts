@@ -1,0 +1,54 @@
+export interface Project {
+  id: string
+  title: string
+  description: string
+  image?: string
+  technologies?: string[]
+  demoUrl?: string
+  githubUrl?: string
+}
+
+// This function would read from a database or file system in production
+// For the demo, we'll return mock data
+export function getProjects(): Project[] {
+  return [
+    {
+      id: "webapp-security-scanner",
+      title: "Web Application Security Scanner",
+      description:
+        "An automated tool for detecting common security vulnerabilities in web applications, including XSS, CSRF, and SQL injection.",
+      image: "/placeholder.svg?height=600&width=800",
+      technologies: ["Python", "JavaScript", "Docker"],
+      demoUrl: "https://example.com/demo",
+      githubUrl: "https://github.com/yourusername/webapp-security-scanner",
+    },
+    {
+      id: "network-traffic-analyzer",
+      title: "Network Traffic Analyzer",
+      description:
+        "A real-time network traffic analysis tool that helps identify suspicious patterns and potential security threats.",
+      image: "/placeholder.svg?height=600&width=800",
+      technologies: ["Rust", "React", "WebAssembly"],
+      demoUrl: "https://example.com/demo",
+      githubUrl: "https://github.com/yourusername/network-traffic-analyzer",
+    },
+    {
+      id: "secure-chat-app",
+      title: "End-to-End Encrypted Chat Application",
+      description:
+        "A secure messaging application with end-to-end encryption, perfect forward secrecy, and self-destructing messages.",
+      image: "/placeholder.svg?height=600&width=800",
+      technologies: ["TypeScript", "Node.js", "Signal Protocol"],
+      githubUrl: "https://github.com/yourusername/secure-chat-app",
+    },
+    {
+      id: "iot-security-framework",
+      title: "IoT Security Testing Framework",
+      description:
+        "A comprehensive framework for testing the security of IoT devices, including firmware analysis and communication protocol testing.",
+      image: "/placeholder.svg?height=600&width=800",
+      technologies: ["C++", "Python", "Embedded Systems"],
+      githubUrl: "https://github.com/yourusername/iot-security-framework",
+    },
+  ]
+}
