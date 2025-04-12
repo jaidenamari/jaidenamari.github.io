@@ -4,7 +4,7 @@ This directory contains royalty-free cyberpunk-themed images used as cover image
 
 ## Image Sources and Licensing
 
-- `cyberpunk-moon.png` - Derived from project assets (cyberpunk-forest-2.png)
+- `cyberpunk-moon.jpg` - Derived from project assets (cyberpunk-forest-2.png)
 - `cyberpunk-forest-blog-setup.png` - Derived from project assets (cyberpunk-forest-1.png)
 - `cyberpunk-nature-spirit.jpg` - Derived from project assets (spriggan.jpg)
 
