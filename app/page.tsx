@@ -5,8 +5,11 @@ import { getProjects } from "@/lib/projects"
 import { HeroSection } from "@/components/hero-section"
 
 export default async function Home() {
-  const posts = getAllPosts().slice(0, 3)
-  const projects = getProjects().slice(0, 2)
+  const allPosts = await getAllPosts()
+  const posts = allPosts.slice(0, 3)
+  
+  const allProjects = await getProjects()
+  const projects = allProjects.slice(0, 2)
 
   return (
     <div>

@@ -2,8 +2,8 @@ import { ProjectCard } from "@/components/project-card"
 import { getProjects } from "@/lib/projects"
 import { PageHeader } from "@/components/page-header"
 
-export default function PortfolioPage() {
-  const projects = getProjects()
+export default async function PortfolioPage() {
+  const projects = await getProjects()
 
   return (
     <div className="container mx-auto px-4 py-24 relative">
@@ -21,9 +21,13 @@ export default function PortfolioPage() {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+        {projects && projects.length > 0 ? (
+          projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))
+        ) : (
+          <p className="text-muted-foreground">No projects available at the moment.</p>
+        )}
       </div>
     </div>
   )

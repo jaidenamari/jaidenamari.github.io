@@ -95,7 +95,7 @@ export default function Footer() {
             <span className="text-cyan-400">{">"}</span>
             {" with "}
             <span className="text-primary">♥</span>
-            {" in the digital wilderness"}
+            {" in the wilderness"}
           </p>
         </div>
       </div>

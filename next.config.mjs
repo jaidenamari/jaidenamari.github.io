@@ -27,9 +27,6 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-  devIndicators: {
-    appIsrStatus: true,
-  },
   // GitHub Pages configuration
   output: 'export',
 

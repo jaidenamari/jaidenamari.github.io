@@ -10,7 +10,7 @@ export interface Project {
 
 // This function would read from a database or file system in production
 // For the demo, we'll return mock data
-export function getProjects(): Project[] {
+export async function getProjects(): Promise<Project[]> {
   return [
     {
       id: "webapp-security-scanner",
