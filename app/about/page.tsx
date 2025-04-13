@@ -19,7 +19,7 @@ export default function AboutPage() {
       <div className="max-w-3xl mx-auto">
         <PageHeader
           title="About Spriggan"
-          description="Security engineer, coder, and digital wilderness explorer."
+          description="Security engineer, coder, and wilderness explorer."
           gradient="from-primary to-cyan-500"
         />
 
@@ -90,20 +90,19 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p>
-              I'm Spriggan, a security engineer and web application developer, I enjoy coding,
-              and exploring both digital and natural environments.
+            I'm Spriggan, a security engineer and web application developer.
             </p>
 
             <p>
-              My expertise spans across vulnerability assessment, secure coding practices, and
-              building full-stack web applications. When I'm not hunting for security flaws or writing code, you might find
-              me setting up homelabs for reverse engineering or spelunking in the forests of the world.
+            I enjoy coding, galanvanting through digital and natural environments. 
+            I live a balanced life close to the dirt rhythms, gardening, 
+            basking in the sun like a lizard, and wuffling around for foragables.
             </p>
 
             <p>
-              This blog serves as a platform to share my findings, projects, and adventures. From technical deep-dives
-              into cybersecurity concepts to my experiences with gardening and outdoor exploration, I aim to document my
-              journey and share knowledge with the community.
+            My expertise spans across vulnerability assessment, secure coding practices, 
+            and building full-stack web applications. When I'm not spelunking the digital world 
+            I'm usually getting into faerie mischief, cooking delicious food, and composting.   
             </p>
 
             <div className="pt-4">
@@ -117,6 +116,7 @@ export default function AboutPage() {
                   "Threat Hunting",
                   "Cybersecurity",
                   "Gardening",
+                  "Cooking",
                   "Hiking",
                   "Traveling",
                   "Exploring"

@@ -7,7 +7,7 @@ const terminalLines = [
   { text: "> Injecting chlorophyll payload...", delay: 500 },
   { text: "> Tracing photon trails through the digital canopy...", delay: 1500 },
   { text: "> Rooting into the Elder Tree mainframe...", delay: 2500 },
-  { text: "> Deciphering whispers of the silicon trees...", delay: 3500 },
+  { text: "> Deciphering whispers of the silicon mycelium...", delay: 3500 },
   { text: "> Decrypting ancient forest knowledge...", delay: 4500 },
   { text: "> The grove accepts. Welcome to the undergrowth...", delay: 5500 },
 ]
@@ -67,7 +67,7 @@ export function CyberTerminal() {
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
           <div className="w-3 h-3 rounded-full bg-green-500"></div>
         </div>
-        <div className="text-xs font-mono text-cyan-400">forest-terminal@spriggan:~</div>
+        <div className="text-xs font-mono text-cyan-400">spore-terminal@spriggan:~</div>
         <div className="text-xs font-mono text-cyan-400">SECURE</div>
       </div>
 
