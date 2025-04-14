@@ -3,6 +3,7 @@ import { LatestProjects } from "@/components/latest-projects"
 import { getAllPosts } from "@/lib/blog"
 import { getProjects } from "@/lib/projects"
 import { HeroSection } from "@/components/hero-section"
+import { HeroScene } from "@/components/hero-scene"
 
 export default async function Home() {
   const allPosts = await getAllPosts()
@@ -13,7 +14,8 @@ export default async function Home() {
 
   return (
     <div>
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <HeroScene />
 
       {/* Content Sections */}
       <div className="container mx-auto px-4 py-8 relative z-10">

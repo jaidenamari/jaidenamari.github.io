@@ -17,11 +17,12 @@ This document outlines the steps that were taken to migrate the cyberpunk-blog p
 
 I wanted a fresh design using some of the new things I've been learning using next.js and radix ui. I'm still not convinced I like next.js, for anything complex, but it seems to be suitable for quickly standing up new designs. 
 
-I don't have any projects on my git that I can currently share with the public, but I will eventually get on documenting some of my coding projects as they come to fruition here. I'll improve the aesthetic over time. I was curious about experimenting with the three.js library to add some 3d elements, but my first attempts are very shy of what I was hoping for. 
+I don't have any projects on my git that I can currently share with the public, but I will eventually get on documenting some of my coding projects as they come to fruition here. I'll improve the aesthetic over time. I was curious about experimenting with the three.js library to add some 3d elements, but my first attempts are very shy of what I was hoping for, so I just added some basic animation for now.
 
 ## Future Improvements
 
 - Improve placeholder logo, add favicon.
+- Actually implement three.js to create animated cyber forest and 3d stars in sky.
 - Update colors to be a bit softer and more ephemeral, the effect on the page of moving particles should feel more spore like.
 - Add projects from my github as I complete them
 - Add notes and various study materials as I'm researching and learning about new cybersecurity, and dev concepts.
