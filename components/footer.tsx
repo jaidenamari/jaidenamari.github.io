@@ -19,8 +19,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-muted-foreground max-w-md">
-              Exploring the intersection of cybersecurity, code, and adventure. Where digital wilderness meets
-              technological frontiers.
+              Exploring the intersection of cybersecurity, software engineering, and nature. Where wilderness meets technology.
             </p>
           </div>
 
