@@ -8,13 +8,12 @@ export interface Project {
   githubUrl?: string
 }
 
-// This function would read from a database or file system in production
-// For the demo, we'll return mock data
+
 export async function getProjects(): Promise<Project[]> {
   return [
     {
       id: "mikro-multi-tenant",
-      title: "Mikro Multi-Tenant",
+      title: "Mikro ORM Multi-Tenant",
       description:
         "A multi-tenant application framework for building scalable and secure applications.",
       image: "/images/blog-covers/cyberpunk-forest-blog-setup.png",

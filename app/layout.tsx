@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { BackgroundEffects } from "@/components/background-effects"
+import { Analytics } from "@/components/analytics"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron" })
@@ -32,6 +33,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

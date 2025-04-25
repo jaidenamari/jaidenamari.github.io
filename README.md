@@ -9,6 +9,7 @@ A modern, cyberpunk-themed personal blog built with Next.js and designed for Git
 - Markdown content support with Obsidian integration
 - Static site generation for fast loading times
 - GitHub Actions for automated deployment
+- Configurable analytics with environment variables
 
 ## Development
 
@@ -39,6 +40,25 @@ This site is configured to deploy to GitHub Pages automatically using GitHub Act
 - React Markdown
 - GitHub Actions
 - Gray Matter (for frontmatter parsing)
+
+## Analytics
+
+The blog includes a flexible analytics system that can be configured via environment variables:
+
+```
+# Create a .env.local file with these variables
+# Master switch for all analytics
+NEXT_PUBLIC_ENABLE_ANALYTICS=true
+
+# Individual services 
+NEXT_PUBLIC_ENABLE_GOATCOUNTER=true
+```
+
+To add new analytics or tracking scripts:
+
+1. Add configuration to `lib/analytics-config.ts`
+2. Add appropriate environment variables
+3. Scripts will be automatically loaded on all pages
 
 ## License
 
