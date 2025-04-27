@@ -55,53 +55,59 @@ export function HeroSection() {
       })
     }
 
-    // Animation loop
-    const animate = () => {
+    // Animation
+    let animationFrameId: number
+    let lastTime = 0
+
+    const animate = (time: number) => {
+      const deltaTime = time - lastTime
+      lastTime = time
+
+      // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       // Draw rays
-      rays.forEach((ray) => {
-        ctx.save()
-        ctx.translate(ray.x, ray.y)
-        ctx.rotate(ray.angle)
+      for (const ray of rays) {
+        ray.y += ray.speed * deltaTime * 0.1
 
-        const gradient = ctx.createLinearGradient(0, 0, 0, ray.length)
-        gradient.addColorStop(0, `${ray.color}00`)
-        gradient.addColorStop(
-          0.5,
-          `${ray.color}${Math.floor(ray.opacity * 255)
-            .toString(16)
-            .padStart(2, "0")}`,
-        )
-        gradient.addColorStop(1, `${ray.color}00`)
-
-        ctx.fillStyle = gradient
-        ctx.globalAlpha = ray.opacity
-        ctx.fillRect(-ray.width / 2, 0, ray.width, ray.length)
-        ctx.restore()
-
-        // Move ray
-        ray.y += ray.speed
-
-        // Reset ray if it's off screen
-        if (ray.y > canvas.height + 100) {
+        // Reset ray position when it goes out of screen
+        if (ray.y > canvas.height + ray.length) {
           ray.y = -100 - Math.random() * 200
           ray.x = Math.random() * canvas.width
         }
-      })
 
-      requestAnimationFrame(animate)
+        // Draw ray
+        const startX = ray.x
+        const startY = ray.y
+        const endX = startX + Math.sin(ray.angle) * ray.length
+        const endY = startY + Math.cos(ray.angle) * ray.length
+
+        const gradient = ctx.createLinearGradient(startX, startY, endX, endY)
+        gradient.addColorStop(0, `${ray.color}00`)
+        gradient.addColorStop(0.5, `${ray.color}${Math.floor(ray.opacity * 255).toString(16).padStart(2, "0")}`)
+        gradient.addColorStop(1, `${ray.color}00`)
+
+        ctx.beginPath()
+        ctx.strokeStyle = gradient
+        ctx.lineWidth = ray.width
+        ctx.moveTo(startX, startY)
+        ctx.lineTo(endX, endY)
+        ctx.stroke()
+      }
+
+      animationFrameId = requestAnimationFrame(animate)
     }
 
-    animate()
+    animationFrameId = requestAnimationFrame(animate)
 
     return () => {
+      cancelAnimationFrame(animationFrameId)
       window.removeEventListener("resize", setCanvasDimensions)
     }
   }, [])
 
   return (
-    <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <div className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-16 md:pt-0 pb-8 md:pb-0">
       {/* Background image with overlay */}
       {/* <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -114,9 +120,12 @@ export function HeroSection() {
       {/* Light rays canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 z-10 pointer-events-none" />
 
-      {/* Cyberpunk grid overlay */}
+      {/* Cyberpunk grid overlay - Hexagonal pattern */}
       <div className="absolute inset-0 z-20 opacity-10">
-        <div className="h-full w-full bg-[linear-gradient(to_right,#8A2BE2_1px,transparent_1px),linear-gradient(to_bottom,#8A2BE2_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <div className="h-full w-full" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%238A2BE2' fill-opacity='1'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '28px 49px'
+        }}></div>
       </div>
 
       {/* Content */}
@@ -140,9 +149,9 @@ export function HeroSection() {
           <div className="w-full h-full bg-cyan-400 clip-triangle transform -rotate-12 shadow-glow-cyan"></div>
         </motion.div>
 
-        {/* Title */}
+        {/* Title - Added top padding for mobile */}
         <motion.h1
-          className="text-6xl md:text-8xl font-bold font-heading leading-none mb-4"
+          className="text-5xl md:text-8xl font-bold font-heading leading-none mb-4 mt-12 md:mt-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -153,7 +162,7 @@ export function HeroSection() {
 
         {/* Subtitle */}
         <motion.p
-          className="text-xl md:text-2xl text-cyan-400 max-w-3xl mx-auto mb-12"
+          className="text-xl md:text-2xl text-cyan-400 max-w-3xl mx-auto mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -161,9 +170,9 @@ export function HeroSection() {
           WHERE CYBERSECURITY MEETS THE WILDERNESS
         </motion.p>
 
-        {/* Terminal */}
+        {/* Terminal - Reduced height on mobile */}
         <motion.div
-          className="max-w-2xl mx-auto mb-12"
+          className="max-w-2xl mx-auto mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -173,7 +182,7 @@ export function HeroSection() {
 
         {/* Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-6 justify-center"
+          className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pb-4 md:pb-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -181,7 +190,7 @@ export function HeroSection() {
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 border-none text-lg px-8 py-6 transform transition-transform hover:translate-y-[-2px] hover:shadow-glow-purple"
+            className="bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 border-none text-base md:text-lg px-6 md:px-8 py-5 md:py-6 transform transition-transform hover:translate-y-[-2px] hover:shadow-glow-purple"
           >
             <Link href="/blog" className="flex items-center">
               Explore Blog
@@ -193,7 +202,7 @@ export function HeroSection() {
             variant="outline"
             size="lg"
             asChild
-            className="border-cyan-500 text-cyan-400 hover:bg-cyan-950/30 text-lg px-8 py-6 transform transition-transform hover:translate-y-[-2px] hover:shadow-glow-cyan"
+            className="border-cyan-500 text-cyan-400 hover:bg-cyan-950/30 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 transform transition-transform hover:translate-y-[-2px] hover:shadow-glow-cyan"
           >
             <Link href="/portfolio">View Projects</Link>
           </Button>

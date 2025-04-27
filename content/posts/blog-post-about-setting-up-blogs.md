@@ -7,8 +7,6 @@ categories: ["blog"]
 coverImage: "/images/blog-covers/cyberpunk-forest-blog-setup.png"
 ---
 
-## Step-by-Step Guide to Setting Up My Blog on GitHub Pages
-
 ### 1. Create a Github Account
 
 I created a new github account, mainly because I wanted to rebrand my online presence and to have a clear trackable start. While my old git has 1000's of commits, it's mainly to internal work projects. 

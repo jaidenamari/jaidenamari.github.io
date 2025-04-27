@@ -14,8 +14,6 @@ categories:
 coverImage: /images/blog-covers/cyberpunk-moon.jpg
 ---
 
-# Building Multi-Tenant Applications with MikroORM and PostgreSQL: A Practical Guide
-
 Imagine creating a single application that serves dozens, hundreds, or even thousands of different clients, each with their own private data that remains completely isolated from others. That's the magic of multi-tenancy - a powerful architectural pattern that's the backbone of most modern SaaS platforms.
 
 In this hands-on guide, I'll walk you through creating a robust multi-tenant application using Node.js, Express, MikroORM, and PostgreSQL. We'll build a farm management system where each farm organization (tenant) gets its own isolated database, ensuring complete data separation while sharing a single codebase. Will it be perfect, probably not. Will it do the thing with some basic adherence to best practices. I sure hope so!?
@@ -1031,8 +1029,6 @@ For production deployments, you'll want to consider:
 - [MikroORM Documentation](https://mikro-orm.io/docs) - Official documentation for MikroORM
 - [MikroORM PostgreSQL Integration](https://mikro-orm.io/docs/usage-with-sql) - Specific guide for PostgreSQL
 - [Express.js Documentation](https://expressjs.com/) - For more on Express and middleware
-- [SaaS Tenant Management Best Practices](https://aws.amazon.com/blogs/apn/multi-tenant-storage-with-amazon-dynamodb/) - AWS guide on multi-tenant data storage
-- [Microservices in a Multi-Tenant Architecture](https://docs.microsoft.com/en-us/azure/architecture/microservices/multi-tenant) - Microsoft's guide on microservices and multi-tenancy
 
 Multi-tenancy enables your application to serve multiple customers efficiently while keeping their data secure and isolated. Whether you're building a small SaaS startup or an enterprise platform, these principles will help you create scalable, maintainable software that can grow with your business.
 
