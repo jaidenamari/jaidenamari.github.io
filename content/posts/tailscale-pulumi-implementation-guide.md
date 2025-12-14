@@ -1,5 +1,5 @@
 ---
-title: Tailscal Pulumi Implementation Guide
+title: Tailscale Pulumi Implementation Guide
 date: 2025-12-13
 draft: false
 tags:
@@ -16,11 +16,13 @@ You want to automate the deployment of VMs that will automatically join a Tailsc
 
 Infrastructure as Code (IaC) is a whole bag of worms, but it does offer some distinct advantages when building and deploying software. One of the main reasons I like to use it is to prevent drift between environments. Time and time again I've had to figure out why configurations between dev/prod were behaving differently and it would be some policy, or configuration that was manually applied, or a misconfigured vpc. It's hard to keep track of what engineers are doing at all times. 
 
-- Reproducibility - Define infrastructure, deploy it consistently accross environments. No manual configuration drift.
+- Reproducibility - Define infrastructure, deploy it consistently across environments. No manual configuration drift.
 - Security by default: Embedding Tailscale into the IaC setup means every VM automatically joins the zero-trust network on first boot. No SSH keys to manage or share, no exposed ports, no additional VPN configuration.
-- Rapid scaling: Easy to deploy 5+ of the exact same server with the same settings and configurations, and they automatically show up on the Tailscale network
+- Rapid scaling: Easy to deploy 5+ of the exact same server with the same settings and configurations, and they automatically show up on the Tailscale network.
 - Version Control: The Infrastructure as Code configuration lives in Git. Making it easy to Review changes, rollback mistakes, and have an audit trail for the networking setup. 
 - Ephemeral Auth: Tailscale auth keys are injected at deplyoment time and used only once. No long-lived creds every get stored on disk.
+
+## Getting started
 
 This implementation uses Pulumi which is a typescript based IaC, with cloud-init to achieve as close to a zero touch Tailscale deployment on pretty much any cloud provider. For this example we are using Digital Ocean, but it is just as easy to do this on any other cloud provider like AWS.
 
