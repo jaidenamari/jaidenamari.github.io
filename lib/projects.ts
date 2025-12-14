@@ -20,6 +20,15 @@ export async function getProjects(): Promise<Project[]> {
       technologies: ["MikroORM", "PostgreSQL", "Express", "Typescript", "Docker"],
       githubUrl: "https://github.com/jaidenamari/mikro-multi-tenant",
     },
+    {
+      id: "artifact-container-deployment",
+      title: "Artifact Container Deployment Pipeline",
+      description:
+          "A immutable artifact container deployment pipeline using GitHub Actions.",
+      image: "/images/blog-covers/cheng-feng-red-wet.jpg",
+      technologies: ["Docker", "GitHub", "Workflows", "Typescript", "Angular", "Caddy"],
+      githubUrl: "https://github.com/jaidenamari/artifact-container-deployment",
+    },
     // {
     //   id: "webapp-security-scanner",
     //   title: "Web Application Security Scanner",

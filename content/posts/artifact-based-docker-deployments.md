@@ -10,7 +10,7 @@ tags:
   - ci/cd
 categories:
   - blog
-coverImage: /images/blog-cheng-feng-red-wet.jpg
+coverImage: /images/blog-covers/cheng-feng-red-wet.jpg
 ---
 # Immutable Artifact Deployments
 
