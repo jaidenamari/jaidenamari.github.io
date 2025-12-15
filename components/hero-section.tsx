@@ -109,13 +109,13 @@ export function HeroSection() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-16 md:pt-0 pb-8 md:pb-0">
       {/* Background image with overlay */}
-      {/* <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{
-          backgroundImage: "url('/images/cyberpunk-forest-1.png')",
-          filter: "brightness(0.2) contrast(1.2)",
-        }}
-      /> */}
+      {/*<div*/}
+      {/*  className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"*/}
+      {/*  style={{*/}
+      {/*    backgroundImage: "url('/images/blog-covers/ray-zhuang-neon-burn.jpg')",*/}
+      {/*    filter: "brightness(0.2) contrast(1.2)",*/}
+      {/*  }}*/}
+      {/*/>*/}
 
       {/* Light rays canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 z-10 pointer-events-none" />
@@ -156,7 +156,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-primary">SPRI</span> <br className="md:hidden" />
+          <span className="text-primary">SPRI</span>
           <span className="text-cyan-400">GGAN</span>
         </motion.h1>
 
@@ -167,7 +167,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          WHERE CYBERSECURITY MEETS THE WILDERNESS
+          WHERE DIGITAL MEETS WILDERNESS
         </motion.p>
 
         {/* Terminal - Reduced height on mobile */}

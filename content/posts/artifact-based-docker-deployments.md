@@ -199,7 +199,7 @@ jobs:
 
 ## Containerizing Angular
 
-Angular apps compile to static files. Don't run `ng serve` in production—it's a development server. Use a proper web server.
+Angular apps compile to static files. Don't run `ng serve` in production, it's a development server and is not properly optimized.
 
 Multi-stage Dockerfile for Angular:
 

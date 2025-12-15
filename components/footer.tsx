@@ -14,8 +14,8 @@ export default function Footer() {
                 <Leaf className="absolute text-cyan-400 w-5 h-5 left-1.5 top-1.5" />
               </div>
               <span className="text-xl font-bold font-heading">
-                <span className="text-primary">Spriggan</span>
-                <span className="text-cyan-400">'s Realm</span>
+                <span className="text-primary">Spriggan </span>
+                <span className="text-cyan-400">Development</span>
               </span>
             </Link>
             <p className="text-muted-foreground max-w-md">
