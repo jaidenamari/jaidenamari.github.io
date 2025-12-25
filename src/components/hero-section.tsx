@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
-import { CyberTerminal } from '@/components/cyber-terminal'
+import { CyberTerminal } from '@/components/cyber-terminal/index'
 
 export function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null)

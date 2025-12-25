@@ -1,0 +1,155 @@
+.terminal-container {
+  --terminal-bg: rgba(10, 10, 15, 0.95);
+  --terminal-border: rgba(15, 206, 158, 0.3);
+  --terminal-glow: rgba(15, 206, 158, 0.15);
+  --header-bg: rgba(20, 20, 30, 0.9);
+}
+
+.terminal-chrome {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--terminal-border);
+  box-shadow: 
+    0 0 30px var(--terminal-glow),
+    0 0 60px rgba(15, 206, 158, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  background: var(--terminal-bg);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--terminal-border);
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.control:hover {
+  opacity: 1;
+}
+
+.control-close {
+  background: #ff5f56;
+  box-shadow: 0 0 6px rgba(255, 95, 86, 0.5);
+}
+
+.control-minimize {
+  background: #ffbd2e;
+  box-shadow: 0 0 6px rgba(255, 189, 46, 0.5);
+}
+
+.control-maximize {
+  background: #27ca3f;
+  box-shadow: 0 0 6px rgba(39, 202, 63, 0.5);
+}
+
+.terminal-title {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+}
+
+.terminal-title-text {
+  opacity: 0.7;
+}
+
+.terminal-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.status-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0fce9e;
+  box-shadow: 0 0 8px rgba(15, 206, 158, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(15, 206, 158, 0.8);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 4px rgba(15, 206, 158, 0.4);
+  }
+}
+
+.status-text {
+  color: #0fce9e;
+  font-weight: 500;
+}
+
+.terminal-body {
+  height: 350px;
+  padding: 4px;
+}
+
+@media (min-width: 768px) {
+  .terminal-body {
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .terminal-body {
+    height: 450px;
+  }
+}
+
+/* xterm.js overrides for better aesthetics */
+.terminal-body .xterm {
+  padding: 8px;
+}
+
+.terminal-body .xterm-viewport {
+  background: transparent !important;
+}
+
+.terminal-body .xterm-screen {
+  background: transparent !important;
+}
+
+/* Subtle scanline effect - optional, can be removed if too retro */
+.terminal-chrome::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  z-index: 10;
+  border-radius: 8px;
+}
+
