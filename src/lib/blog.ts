@@ -20,3 +20,4 @@ export function getPostBySlug(slug: string): Post | undefined {
   return getAllPosts().find(post => post.slug === slug)
 }
 
+

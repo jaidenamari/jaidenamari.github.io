@@ -39,3 +39,4 @@ export function LatestProjects({ projects }: LatestProjectsProps) {
   )
 }
 
+
