@@ -217,6 +217,8 @@ export function SporeIDCard({ name, handle, avatar, did, skills, socialLinks }: 
                   style={{ borderColor: '#a855f730', color: '#a855f780' }}
                 >
                   SPORE NETWORK · NODE · EARTH
+                  <br />
+                  Inspiration: <a href={'https://www.aetheros.computer/id/montoulieu.dev'}>Pieter_Montoulieu</a>
                 </div>
               </div>
             </div>
