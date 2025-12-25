@@ -122,9 +122,9 @@ ${COLORS.green}    ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣶⣶⣶⣤⣤⣄⡀⠀�
 
     const info = [
       '',
-      `${COLORS.cyan}${COLORS.bold}visitor${COLORS.reset}@${COLORS.magenta}${COLORS.bold}spriggan${COLORS.reset}`,
+      `${COLORS.cyan}${COLORS.bold}visitor${COLORS.reset}@${COLORS.magenta}${COLORS.bold}grove${COLORS.reset}`,
       `${COLORS.dim}─────────────────${COLORS.reset}`,
-      `${COLORS.cyan}OS${COLORS.reset}: Spriggan OS 1.0.0`,
+      `${COLORS.cyan}OS${COLORS.reset}: Spore OS 1.0.0`,
       `${COLORS.cyan}Host${COLORS.reset}: Digital Wilderness`,
       `${COLORS.cyan}Kernel${COLORS.reset}: mycelium-5.15.0`,
       `${COLORS.cyan}Shell${COLORS.reset}: spsh 1.0.0`,

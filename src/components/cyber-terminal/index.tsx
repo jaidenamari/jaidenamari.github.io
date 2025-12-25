@@ -42,7 +42,7 @@ export function CyberTerminal() {
 
   const getPrompt = useCallback(() => {
     const path = getDisplayPath(fs.cwd);
-    return `\x1b[35mvisitor\x1b[0m@\x1b[36mspriggan\x1b[0m:\x1b[32m${path}\x1b[0m$ `;
+    return `\x1b[35mvisitor\x1b[0m@\x1b[36mgrove\x1b[0m:\x1b[32m${path}\x1b[0m$ `;
   }, [fs]);
 
   const handleInput = useCallback(async (input: string) => {
@@ -66,8 +66,8 @@ export function CyberTerminal() {
     
     handle.writeLine('\x1b[36m\x1b[1m');
     handle.writeLine('╔══════════════════════════════════════════════════════════╗');
-    handle.writeLine('║                    SPRIGGAN OS v1.0.0                     ║');
-    handle.writeLine('║            Where Digital Meets Wilderness                 ║');
+    handle.writeLine('║                     SPORE OS v1.0.0                       ║');
+    handle.writeLine('║                                                           ║');
     handle.writeLine('╚══════════════════════════════════════════════════════════╝');
     handle.writeLine('\x1b[0m');
     handle.writeLine('');
@@ -97,7 +97,7 @@ export function CyberTerminal() {
             <span className="control control-maximize" />
           </div>
           <div className="terminal-title">
-            <span className="terminal-title-text">spriggan-terminal</span>
+            <span className="terminal-title-text">spore-terminal</span>
           </div>
           <div className="terminal-status">
             <span className="status-indicator" />

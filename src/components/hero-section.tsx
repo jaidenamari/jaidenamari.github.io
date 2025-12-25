@@ -106,7 +106,7 @@ export function HeroSection() {
         }}></div>
       </div>
 
-      <div className="relative z-30 container mx-auto px-4 text-center">
+      <div className="relative z-30 container mx-auto px-4">
         <motion.div
           className="absolute left-1/4 -translate-x-1/2 top-1/2 -translate-y-1/2 w-64 h-64 opacity-20 z-0"
           initial={{ opacity: 0, scale: 0.8, rotateZ: -10 }}
@@ -126,7 +126,7 @@ export function HeroSection() {
         </motion.div>
 
         <motion.h1
-          className="text-5xl md:text-8xl font-bold font-heading leading-none mb-4 mt-12 md:mt-0"
+          className="text-5xl md:text-8xl font-bold font-heading leading-none mb-4 mt-12 md:mt-0 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -135,7 +135,7 @@ export function HeroSection() {
         </motion.h1>
 
         <motion.p
-          className="text-xl md:text-2xl text-cyan-400 max-w-3xl mx-auto mb-8 md:mb-12"
+          className="text-xl md:text-2xl text-cyan-400 max-w-3xl mx-auto mb-8 md:mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -153,7 +153,7 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pb-4 md:pb-0"
+          className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pb-4 md:pb-0 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
