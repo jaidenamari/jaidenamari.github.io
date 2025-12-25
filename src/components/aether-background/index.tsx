@@ -18,6 +18,7 @@ function AetherShaderMesh({ uniforms: userUniforms }: AetherShaderMeshProps) {
       uResolution: { value: new THREE.Vector2(size.width, size.height) },
       uSmokeIntensity: { value: merged.uSmokeIntensity },
       uSmokeSpeed: { value: merged.uSmokeSpeed },
+      uSmokeDensity: { value: merged.uSmokeDensity },
       uDotMatrixIntensity: { value: merged.uDotMatrixIntensity },
       uDotMatrixScale: { value: merged.uDotMatrixScale },
       uVignetteIntensity: { value: merged.uVignetteIntensity },
@@ -36,6 +37,7 @@ function AetherShaderMesh({ uniforms: userUniforms }: AetherShaderMeshProps) {
       const merged = { ...defaultUniforms, ...userUniforms };
       material.uniforms.uSmokeIntensity.value = merged.uSmokeIntensity;
       material.uniforms.uSmokeSpeed.value = merged.uSmokeSpeed;
+      material.uniforms.uSmokeDensity.value = merged.uSmokeDensity;
       material.uniforms.uDotMatrixIntensity.value = merged.uDotMatrixIntensity;
       material.uniforms.uDotMatrixScale.value = merged.uDotMatrixScale;
       material.uniforms.uVignetteIntensity.value = merged.uVignetteIntensity;
@@ -67,10 +69,11 @@ interface FloatingParticle {
 interface FloatingParticlesProps {
   count: number;
   speed: number;
+  size: number;
   colors: string[];
 }
 
-function FloatingParticles({ count, speed, colors }: FloatingParticlesProps) {
+function FloatingParticles({ count, speed, size, colors }: FloatingParticlesProps) {
   const pointsRef = useRef<THREE.Points>(null);
   const { viewport } = useThree();
 
@@ -87,11 +90,11 @@ function FloatingParticles({ count, speed, colors }: FloatingParticlesProps) {
         (Math.random() - 0.5) * 0.002 * speed,
         0,
       ] as [number, number, number],
-      size: Math.random() * 1.5 + 0.5,
+      size: (Math.random() * 1.5 + 0.5) * size,
       color: colors[Math.floor(Math.random() * colors.length)],
       opacity: Math.random() * 0.4 + 0.2,
     }));
-  }, [count, speed, colors, viewport.width, viewport.height]);
+  }, [count, speed, size, colors, viewport.width, viewport.height]);
 
   const geometry = useMemo(() => {
     const positions = new Float32Array(particles.length * 3);
@@ -184,6 +187,7 @@ function FloatingParticles({ count, speed, colors }: FloatingParticlesProps) {
 export interface AetherBackgroundSettings {
   smokeIntensity: number;
   smokeSpeed: number;
+  smokeDensity: number;
   dotMatrixIntensity: number;
   dotMatrixScale: number;
   hexGridOpacity: number;
@@ -191,12 +195,14 @@ export interface AetherBackgroundSettings {
   particleGlow: number;
   floatingParticleCount: number;
   floatingParticleSpeed: number;
+  floatingParticleSize: number;
   liteMode: boolean;
 }
 
 export const defaultSettings: AetherBackgroundSettings = {
   smokeIntensity: 1.0,
   smokeSpeed: 1.3,
+  smokeDensity: 1.0,
   dotMatrixIntensity: 1.0,
   dotMatrixScale: 1.5,
   hexGridOpacity: 0.0,
@@ -204,6 +210,7 @@ export const defaultSettings: AetherBackgroundSettings = {
   particleGlow: 0.3,
   floatingParticleCount: 40,
   floatingParticleSpeed: 0.15,
+  floatingParticleSize: 1.0,
   liteMode: true,
 };
 
@@ -221,6 +228,7 @@ export function AetherBackground({ settings: userSettings, className = '' }: Aet
   const shaderUniforms: Partial<ShaderUniforms> = {
     uSmokeIntensity: settings.smokeIntensity,
     uSmokeSpeed: settings.smokeSpeed,
+    uSmokeDensity: settings.smokeDensity,
     uDotMatrixIntensity: settings.dotMatrixIntensity,
     uDotMatrixScale: settings.dotMatrixScale,
     uVignetteIntensity: settings.vignetteIntensity,
@@ -246,6 +254,7 @@ export function AetherBackground({ settings: userSettings, className = '' }: Aet
             <FloatingParticles
               count={particleCount}
               speed={settings.floatingParticleSpeed}
+              size={settings.floatingParticleSize}
               colors={particleColors}
             />
           )}
