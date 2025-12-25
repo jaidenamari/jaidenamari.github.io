@@ -66,8 +66,8 @@ export function CyberTerminal() {
     
     handle.writeLine('\x1b[36m\x1b[1m');
     handle.writeLine('╔══════════════════════════════════════════════════════════╗');
-    handle.writeLine('║                     SPORE OS v1.0.0                       ║');
-    handle.writeLine('║                                                           ║');
+    handle.writeLine('║                     SPORE OS v1.0.0                      ║');
+    handle.writeLine('║                                                          ║');
     handle.writeLine('╚══════════════════════════════════════════════════════════╝');
     handle.writeLine('\x1b[0m');
     handle.writeLine('');
