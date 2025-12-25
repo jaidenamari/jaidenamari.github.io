@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Settings, X, ChevronDown, ChevronRight, RotateCcw, Sparkles, Zap } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
@@ -6,6 +6,8 @@ import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { type AetherBackgroundSettings, defaultSettings } from './index';
+
+const STORAGE_KEY = 'aether-background-settings';
 
 interface EffectSection {
   id: string;
@@ -36,6 +38,7 @@ const presets: Preset[] = [
     settings: {
       smokeIntensity: 1.0,
       smokeSpeed: 1.3,
+      smokeDensity: 1.0,
       dotMatrixIntensity: 1.0,
       dotMatrixScale: 1.5,
       hexGridOpacity: 0.0,
@@ -43,6 +46,7 @@ const presets: Preset[] = [
       particleGlow: 0.3,
       floatingParticleCount: 40,
       floatingParticleSpeed: 0.15,
+      floatingParticleSize: 1.0,
       liteMode: true,
     },
   },
@@ -53,13 +57,15 @@ const presets: Preset[] = [
     settings: {
       smokeIntensity: 0.7,
       smokeSpeed: 0.8,
+      smokeDensity: 0.5,
       dotMatrixIntensity: 0.4,
       dotMatrixScale: 2.5,
-      hexGridOpacity: 0.15,
+      hexGridOpacity: 0.0,
       vignetteIntensity: 0.5,
-      particleGlow: 0.8,
-      floatingParticleCount: 100,
-      floatingParticleSpeed: 0.4,
+      particleGlow: 1.0,
+      floatingParticleCount: 200,
+      floatingParticleSpeed: 0.6,
+      floatingParticleSize: 0.9,
       liteMode: false,
     },
   },
@@ -70,6 +76,7 @@ const presets: Preset[] = [
     settings: {
       smokeIntensity: 0.2,
       smokeSpeed: 0.05,
+      smokeDensity: 3.0,
       dotMatrixIntensity: 0.08,
       dotMatrixScale: 4.0,
       hexGridOpacity: 0.0,
@@ -77,6 +84,7 @@ const presets: Preset[] = [
       particleGlow: 0.15,
       floatingParticleCount: 15,
       floatingParticleSpeed: 0.03,
+      floatingParticleSize: 1.0,
       liteMode: false,
     },
   },
@@ -90,6 +98,18 @@ interface EffectsControlsProps {
 export function EffectsControls({ settings, onSettingsChange }: EffectsControlsProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['smoke', 'particles']));
+
+  useEffect(() => {
+    const savedSettings = localStorage.getItem(STORAGE_KEY);
+    if (savedSettings) {
+      try {
+        const parsed = JSON.parse(savedSettings);
+        onSettingsChange({ ...defaultSettings, ...parsed });
+      } catch (e) {
+        console.error('Failed to parse saved settings:', e);
+      }
+    }
+  }, []);
 
   const toggleSection = (id: string) => {
     const newExpanded = new Set(expandedSections);
@@ -105,11 +125,19 @@ export function EffectsControls({ settings, onSettingsChange }: EffectsControlsP
     key: K,
     value: AetherBackgroundSettings[K]
   ) => {
-    onSettingsChange({ ...settings, [key]: value });
+    const newSettings = { ...settings, [key]: value };
+    onSettingsChange(newSettings);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(newSettings));
+  };
+
+  const applyPreset = (presetSettings: AetherBackgroundSettings) => {
+    onSettingsChange(presetSettings);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(presetSettings));
   };
 
   const resetToDefaults = () => {
     onSettingsChange(defaultSettings);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultSettings));
   };
 
   return (
@@ -183,7 +211,7 @@ export function EffectsControls({ settings, onSettingsChange }: EffectsControlsP
                     {presets.map((preset) => (
                       <button
                         key={preset.id}
-                        onClick={() => onSettingsChange(preset.settings)}
+                        onClick={() => applyPreset(preset.settings)}
                         className="px-3 py-2 text-left rounded border border-cyan-400/20 hover:border-cyan-400/50 hover:bg-cyan-400/5 transition-all group"
                         title={preset.description}
                       >
@@ -257,6 +285,22 @@ export function EffectsControls({ settings, onSettingsChange }: EffectsControlsP
                                     onValueChange={([v]) => updateSetting('smokeSpeed', v)}
                                     min={0}
                                     max={3}
+                                    step={0.1}
+                                    className="[&_[role=slider]]:bg-cyan-400 [&_[role=slider]]:border-cyan-400"
+                                  />
+                                </div>
+                                <div className="space-y-2">
+                                  <div className="flex items-center justify-between">
+                                    <Label className="text-cyan-400/70 text-xs font-mono">DENSITY</Label>
+                                    <span className="text-cyan-400/50 text-xs font-mono">
+                                      {settings.smokeDensity.toFixed(2)}
+                                    </span>
+                                  </div>
+                                  <Slider
+                                    value={[settings.smokeDensity]}
+                                    onValueChange={([v]) => updateSetting('smokeDensity', v)}
+                                    min={0.1}
+                                    max={5.0}
                                     step={0.1}
                                     className="[&_[role=slider]]:bg-cyan-400 [&_[role=slider]]:border-cyan-400"
                                   />
@@ -362,6 +406,22 @@ export function EffectsControls({ settings, onSettingsChange }: EffectsControlsP
                                     min={0}
                                     max={150}
                                     step={5}
+                                    className="[&_[role=slider]]:bg-cyan-400 [&_[role=slider]]:border-cyan-400"
+                                  />
+                                </div>
+                                <div className="space-y-2">
+                                  <div className="flex items-center justify-between">
+                                    <Label className="text-cyan-400/70 text-xs font-mono">FLOAT_SIZE</Label>
+                                    <span className="text-cyan-400/50 text-xs font-mono">
+                                      {settings.floatingParticleSize.toFixed(2)}
+                                    </span>
+                                  </div>
+                                  <Slider
+                                    value={[settings.floatingParticleSize]}
+                                    onValueChange={([v]) => updateSetting('floatingParticleSize', v)}
+                                    min={0.1}
+                                    max={5.0}
+                                    step={0.1}
                                     className="[&_[role=slider]]:bg-cyan-400 [&_[role=slider]]:border-cyan-400"
                                   />
                                 </div>

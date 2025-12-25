@@ -14,6 +14,7 @@ export const fragmentShader = `
   uniform vec2 uResolution;
   uniform float uSmokeIntensity;
   uniform float uSmokeSpeed;
+  uniform float uSmokeDensity;
   uniform float uDotMatrixIntensity;
   uniform float uDotMatrixScale;
   uniform float uVignetteIntensity;
@@ -54,8 +55,8 @@ export const fragmentShader = `
     return 130.0 * dot(m, g);
   }
   
-  // Fractal Brownian Motion for smoke
-  float fbm(vec2 p) {
+  // Fractal Brownian Motion for smoke with density control
+  float fbm(vec2 p, float density) {
     float value = 0.0;
     float amplitude = 0.5;
     float frequency = 1.0;
@@ -65,6 +66,11 @@ export const fragmentShader = `
       frequency *= 2.0;
       amplitude *= 0.5;
     }
+    
+    // Apply density transformation
+    value = value * 0.5 + 0.5;
+    value = pow(value, 1.0 / max(density, 0.1));
+    value = value * 2.0 - 1.0;
     
     return value;
   }
@@ -110,13 +116,13 @@ export const fragmentShader = `
     // Base color with slight teal bias
     vec3 color = uBaseColor;
     
-    // Smoke layer using fBM
+    // Smoke layer using fBM with density control
     if(uSmokeIntensity > 0.0) {
       vec2 smokeUV = uv * 2.5;
       smokeUV += uTime * uSmokeSpeed * 0.015;
       
-      float smoke1 = fbm(smokeUV);
-      float smoke2 = fbm(smokeUV * 1.3 + vec2(uTime * uSmokeSpeed * 0.008, uTime * uSmokeSpeed * 0.005));
+      float smoke1 = fbm(smokeUV, uSmokeDensity);
+      float smoke2 = fbm(smokeUV * 1.3 + vec2(uTime * uSmokeSpeed * 0.008, uTime * uSmokeSpeed * 0.005), uSmokeDensity);
       float smoke = (smoke1 + smoke2) * 0.5;
       smoke = smoke * 0.5 + 0.5;
       
@@ -169,6 +175,7 @@ export interface ShaderUniforms {
   uResolution: [number, number];
   uSmokeIntensity: number;
   uSmokeSpeed: number;
+  uSmokeDensity: number;
   uDotMatrixIntensity: number;
   uDotMatrixScale: number;
   uVignetteIntensity: number;
@@ -183,6 +190,7 @@ export const defaultUniforms: ShaderUniforms = {
   uResolution: [1920, 1080],
   uSmokeIntensity: 0.8,
   uSmokeSpeed: 1.0,
+  uSmokeDensity: 1.0,
   uDotMatrixIntensity: 0.4,
   uDotMatrixScale: 2.0,
   uVignetteIntensity: 0.6,
