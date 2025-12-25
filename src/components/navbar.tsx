@@ -35,18 +35,6 @@ export function Navbar() {
       )}
     >
       <div className="container flex h-16 items-center justify-center">
-        {/*<div className="flex items-center gap-2">*/}
-        {/*  /!*<Link to="/" className="flex items-center">*!/*/}
-        {/*  /!*  <div className="mr-2 relative w-8 h-8">*!/*/}
-        {/*  /!*    <Shield className="absolute text-primary w-8 h-8" />*!/*/}
-        {/*  /!*    <Leaf className="absolute text-cyan-400 w-5 h-5 left-1.5 top-1.5" />*!/*/}
-        {/*  /!*  </div>*!/*/}
-        {/*  /!*  <span className="text-xl font-bold font-heading">*!/*/}
-        {/*  /!*    <span className="text-primary">Spriggan</span>*!/*/}
-        {/*  /!*  </span>*!/*/}
-        {/*  /!*</Link>*!/*/}
-        {/*</div>*/}
-
         <nav className="hidden flex md:flex items-center gap-6">
           {navItems.map((item) => (
             <Link
@@ -62,13 +50,6 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-
-        {/*<div className="flex items-center gap-2">*/}
-        {/*  <ThemeToggle />*/}
-        {/*  <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>*/}
-        {/*    {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}*/}
-        {/*  </Button>*/}
-        {/*</div>*/}
       </div>
 
       {mobileMenuOpen && (
