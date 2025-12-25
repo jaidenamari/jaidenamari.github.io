@@ -170,3 +170,35 @@
   @apply bg-transparent border-none p-0 text-foreground;
 }
 
+/* Spore ID Card animations and effects */
+.perspective-1000 {
+  perspective: 1200px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes scanline-shimmer {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scanline-shimmer {
+  animation: scanline-shimmer 8s linear infinite;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(168, 85, 247, 0.1) 48%,
+    rgba(168, 85, 247, 0.15) 50%,
+    rgba(168, 85, 247, 0.1) 52%,
+    transparent 100%
+  );
+}
+
+

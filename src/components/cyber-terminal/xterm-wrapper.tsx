@@ -185,3 +185,4 @@ function clearCurrentLine(terminal: Terminal, length: number) {
   }
 }
 
+

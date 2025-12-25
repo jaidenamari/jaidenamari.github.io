@@ -138,3 +138,4 @@ function getPathCompletions(partial: string, fs: VirtualFileSystem): string[] {
   return matches;
 }
 
+
