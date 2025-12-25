@@ -1,9 +1,6 @@
-import { Button } from '@/components/ui/button'
-import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
-import { CyberTerminal } from '@/components/cyber-terminal'
+import { CyberTerminal } from '@/components/cyber-terminal/index'
 
 export function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -106,7 +103,7 @@ export function HeroSection() {
         }}></div>
       </div>
 
-      <div className="relative z-30 container mx-auto px-4 text-center">
+      <div className="relative z-30 container mx-auto px-4">
         <motion.div
           className="absolute left-1/4 -translate-x-1/2 top-1/2 -translate-y-1/2 w-64 h-64 opacity-20 z-0"
           initial={{ opacity: 0, scale: 0.8, rotateZ: -10 }}
@@ -126,7 +123,7 @@ export function HeroSection() {
         </motion.div>
 
         <motion.h1
-          className="text-5xl md:text-8xl font-bold font-heading leading-none mb-4 mt-12 md:mt-0"
+          className="text-5xl md:text-8xl font-bold font-heading leading-none mb-4 mt-12 md:mt-0 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -135,7 +132,7 @@ export function HeroSection() {
         </motion.h1>
 
         <motion.p
-          className="text-xl md:text-2xl text-cyan-400 max-w-3xl mx-auto mb-8 md:mb-12"
+          className="text-xl md:text-2xl text-cyan-400 max-w-3xl mx-auto mb-8 md:mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -144,39 +141,12 @@ export function HeroSection() {
         </motion.p>
 
         <motion.div
-          className="max-w-2xl mx-auto mb-8 md:mb-12"
+          className="max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <CyberTerminal />
-        </motion.div>
-
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pb-4 md:pb-0"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <Button
-            asChild
-            size="lg"
-            className="bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 border-none text-base md:text-lg px-6 md:px-8 py-5 md:py-6 transform transition-transform hover:translate-y-[-2px] hover:shadow-glow-purple"
-          >
-            <Link to="/blog" className="flex items-center">
-              Explore Blog
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-
-          <Button
-            variant="outline"
-            size="lg"
-            asChild
-            className="border-cyan-500 text-cyan-400 hover:bg-cyan-950/30 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 transform transition-transform hover:translate-y-[-2px] hover:shadow-glow-cyan"
-          >
-            <Link to="/portfolio">View Projects</Link>
-          </Button>
         </motion.div>
       </div>
     </div>
