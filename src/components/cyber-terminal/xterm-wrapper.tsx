@@ -145,7 +145,7 @@ export function XTermWrapper({ onInput, onReady, prompt }: XTermWrapperProps) {
         clearCurrentLine(terminal, inputBufferRef.current.length);
         inputBufferRef.current = '';
       } else if (data === '\t') {
-        // Tab completion would go here
+        //TODO: Tab completion would go here
       } else if (code >= 32) {
         inputBufferRef.current += data;
         terminal.write(data);

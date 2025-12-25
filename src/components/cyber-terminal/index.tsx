@@ -63,13 +63,6 @@ export function CyberTerminal() {
   const handleReady = useCallback((handle: XTermHandle) => {
     terminalRef.current = handle;
     setIsReady(true);
-    
-    handle.writeLine('\x1b[36m\x1b[1m');
-    handle.writeLine('╔══════════════════════════════════════════════════════════╗');
-    handle.writeLine('║                     SPORE OS v1.0.0                      ║');
-    handle.writeLine('║                                                          ║');
-    handle.writeLine('╚══════════════════════════════════════════════════════════╝');
-    handle.writeLine('\x1b[0m');
     handle.writeLine('');
     handle.writeLine("\x1b[32mSystem online. Type 'help' for available commands.\x1b[0m");
     handle.writeLine("\x1b[2mTip: Use 'ls /blog' to see posts, 'open <slug>' to read them.\x1b[0m");
@@ -91,17 +84,33 @@ export function CyberTerminal() {
     >
       <div className="terminal-chrome">
         <div className="terminal-header">
-          <div className="terminal-controls">
-            <span className="control control-close" />
-            <span className="control control-minimize" />
-            <span className="control control-maximize" />
+          <div className="terminal-system-header">
+            <div className="terminal-logo">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 17L12 22L22 17" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 12L12 17L22 12" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div className="terminal-system-info">
+              <div className="terminal-system-label">SYSTEM_ACCESS</div>
+              <div className="terminal-system-name">SPORE OS V1.0</div>
+            </div>
           </div>
-          <div className="terminal-title">
-            <span className="terminal-title-text">spore-terminal</span>
-          </div>
-          <div className="terminal-status">
-            <span className="status-indicator" />
-            <span className="status-text">SECURE</span>
+          
+          <div className="terminal-status-bar">
+            <div className="terminal-status-group">
+              <div className="terminal-status-item">
+                <span className="status-icon secure"></span>
+                <span>ACCESS_GRANTED</span>
+              </div>
+            </div>
+            <div className="terminal-status-group">
+              <div className="terminal-status-item active">
+                <span className="status-icon secure"></span>
+                <span>SECURE_CONNECTION</span>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -111,6 +120,31 @@ export function CyberTerminal() {
             onReady={handleReady}
             prompt={getPrompt()}
           />
+        </div>
+
+        <div className="terminal-footer">
+          <div className="terminal-notification-area">
+            <span className="terminal-notification-label">SYSTEM_LOG:</span>
+            <span>Spore OS is currently in development. Aberrations may occur. Use at your own risk!</span>
+          </div>
+          
+          <div className="terminal-actions">
+            <a href="/blog" onClick={(e) => { e.preventDefault(); navigate('/blog'); }} className="terminal-action-btn primary">
+              <span>→ INITIATE_BLOG</span>
+            </a>
+            <a href="/portfolio" onClick={(e) => { e.preventDefault(); navigate('/portfolio'); }} className="terminal-action-btn">
+              <span>VIEW_PROJECTS</span>
+            </a>
+          </div>
+
+          <div className="terminal-protocol-info">
+            <div className="terminal-protocol-item">
+              <span>PROTOCOL: OAUTH_SPORE_BROWSER</span>
+            </div>
+            <div className="terminal-protocol-item">
+              <span>RESOLVER: MYCELIUM_5.15.0</span>
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>

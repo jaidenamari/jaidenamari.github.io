@@ -416,5 +416,5 @@ pnpm add @xterm/xterm @xterm/addon-fit @xterm/addon-web-links
 ---
 
 *Document Version: 1.1*  
-*Updated: December 2024*  
+*Updated: December 2025*  
 *Branch: feature/interactive-cyber-terminal*

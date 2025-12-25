@@ -102,7 +102,8 @@ export const neofetchCommand: Command = {
   usage: 'neofetch',
   execute(_args, ctx) {
     const ascii = `
-${COLORS.green}    ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣶⣶⣶⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀
+${COLORS.green}    ⠀⠀⠀⠀⠀⠀⠀⠀
+             ⢀⣠⣤⣤⣶⣶⣶⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀
     ⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀
     ⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀
     ⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀
@@ -124,15 +125,13 @@ ${COLORS.green}    ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣶⣶⣶⣤⣤⣄⡀⠀�
       '',
       `${COLORS.cyan}${COLORS.bold}visitor${COLORS.reset}@${COLORS.magenta}${COLORS.bold}grove${COLORS.reset}`,
       `${COLORS.dim}─────────────────${COLORS.reset}`,
-      `${COLORS.cyan}OS${COLORS.reset}: Spore OS 1.0.0`,
-      `${COLORS.cyan}Host${COLORS.reset}: Digital Wilderness`,
-      `${COLORS.cyan}Kernel${COLORS.reset}: mycelium-5.15.0`,
-      `${COLORS.cyan}Shell${COLORS.reset}: spsh 1.0.0`,
-      `${COLORS.cyan}Terminal${COLORS.reset}: xterm-256color`,
-      `${COLORS.cyan}CPU${COLORS.reset}: Quantum Pathfinder @ ∞ GHz`,
-      `${COLORS.cyan}Memory${COLORS.reset}: 128TB silicon-organic hybrid`,
-      '',
-      `${COLORS.dim}Where digital meets wilderness${COLORS.reset}`,
+      `${COLORS.cyan}OS${COLORS.reset}: SPORE_OS v1.0`,
+      `${COLORS.cyan}Host${COLORS.reset}: DIGITAL_WILDERNESS`,
+      `${COLORS.cyan}Kernel${COLORS.reset}: MYCELIUM_5.15.0`,
+      `${COLORS.cyan}Shell${COLORS.reset}: SPSH_v1.1`,
+      `${COLORS.cyan}Terminal${COLORS.reset}: xterm_256color`,
+      `${COLORS.cyan}CPU${COLORS.reset}: QUANTUM_PATH @ ∞ GHz`,
+      `${COLORS.cyan}Memory${COLORS.reset}: 128TB SILGANIC_HYBRID`,
       '',
     ];
 
