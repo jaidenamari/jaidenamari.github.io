@@ -3,11 +3,8 @@ import type { Config } from "tailwindcss"
 const config: Config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
+    "./index.html",
     "./src/**/*.{ts,tsx}",
-    "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     container: {
@@ -80,8 +77,8 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
-        heading: ["var(--font-orbitron)"],
+        sans: ["Inter", "sans-serif"],
+        heading: ["Orbitron", "sans-serif"],
       },
     },
   },
