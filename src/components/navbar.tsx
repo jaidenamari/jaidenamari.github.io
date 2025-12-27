@@ -35,7 +35,7 @@ export function Navbar() {
       )}
     >
       <div className="container flex h-16 items-center justify-center">
-        <nav className="hidden flex md:flex items-center gap-6">
+        <nav className="flex md:flex items-center gap-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
